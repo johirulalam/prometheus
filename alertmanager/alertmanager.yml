@@ -8,5 +8,5 @@ route:
 receivers:
 - name: 'slack-notifications'
   slack_configs:
-  - channel: '# doplac-staging-log'
+  - channel: 'doplac-staging-log'
     send_resolved: true
