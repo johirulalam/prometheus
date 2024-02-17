@@ -1,6 +1,6 @@
 global:
   resolve_timeout: 1m
-  slack_api_url: 'https://hooks.slack.com/services/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'
+  slack_api_url: 'https://hooks.slack.com/services/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'
 
 route:
   receiver: 'slack-notifications'
@@ -8,5 +8,5 @@ route:
 receivers:
 - name: 'slack-notifications'
   slack_configs:
-  - channel: 'doplac-staging-log'
+  - channel: '#hackathon'
     send_resolved: true
