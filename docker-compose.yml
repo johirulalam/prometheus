@@ -4,9 +4,10 @@ networks:
     driver: bridge
 services:
   prometheus:
-    image: prom/prometheus
+    image: prom/
+    hostname: prometheus
     ports:
-      - "9090:9090"
+      - 9090:9090
     volumes:
       - ./prometheus:/etc/prometheus
     command:
@@ -16,15 +17,17 @@ services:
 
   node_exporter:
     image: prom/node-exporter
+    hostname: node_exporter
     ports:
-      - "9111:9111"
+      - 9111:9111
     networks:
       - my-network
 
   alertmanager:
     image: prom/alertmanager
+    hostname: alertmanager
     ports:
-      - "9093:9093"
+      - 9093:9093
     volumes:
       - ./alertmanager:/etc/alertmanager
     command:

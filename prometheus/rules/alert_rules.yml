@@ -4,7 +4,7 @@ groups:
 
     - alert: NodeExporterDown
       expr: up{job="node_exporter"} == 0
-      for: 2m
+      for: 15s
       labels:
         severity: critical
       annotations:
