@@ -1,13 +1,15 @@
 global:
   resolve_timeout: 15s
-  slack_api_url: 'https://hooks.slack.com/services/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'
 
 route:
-  receiver: 'slack-notifications'
+  receiver: 'slack'
 
 receivers:
-- name: 'slack-notifications'
+- name: 'slack'
   slack_configs:
+  - send_resolved: true
+    text: "{{ .CommonAnnotations.description }}"
+    username: 'Prometheus'
   - channel: '#doplac-staging-log'
     api_url: 'https://hooks.slack.com/services/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'
 
