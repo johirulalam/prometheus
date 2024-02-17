@@ -12,7 +12,7 @@ services:
   node_exporter:
     image: prom/node-exporter
     ports:
-      - "9100:9100"
+      - "9111:9111"
 
   alertmanager:
     image: prom/alertmanager
