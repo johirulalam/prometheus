@@ -4,7 +4,7 @@ networks:
     driver: bridge
 services:
   prometheus:
-    image: prom/
+    image: prom/prometheus
     hostname: prometheus
     ports:
       - 9090:9090
