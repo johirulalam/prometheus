@@ -1,4 +1,7 @@
 version: '3'
+networks:
+  my-network:
+    driver: bridge
 services:
   prometheus:
     image: prom/prometheus
@@ -8,11 +11,15 @@ services:
       - ./prometheus:/etc/prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
+    networks:
+      - my-network
 
   node_exporter:
     image: prom/node-exporter
     ports:
       - "9111:9111"
+    networks:
+      - my-network
 
   alertmanager:
     image: prom/alertmanager
@@ -22,3 +29,5 @@ services:
       - ./alertmanager:/etc/alertmanager
     command:
       - '--config.file=/etc/alertmanager/alertmanager.yml'
+    networks:
+      - my-network
