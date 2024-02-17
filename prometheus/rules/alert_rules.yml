@@ -7,8 +7,6 @@ groups:
       for: 2m
       labels:
         severity: critical
-        app_type: linux
-        category: server
       annotations:
         summary: "Node Exporter is down"
         description: "Node Exporter is down for more than 2 minutes"
@@ -21,8 +19,6 @@ groups:
       for: 2m
       labels:
         severity: warning
-        app_type: linux
-        category: memory
       annotations:
         summary: "Node memory usage is going high"
         description: "Node memory for instance {{ $labels.instance }} has reached {{ $value }}%"
@@ -32,8 +28,6 @@ groups:
       for: 2m
       labels:
         severity: critical
-        app_type: linux
-        category: memory
       annotations:
         summary: "Node memory usage is very HIGH"
         description: "Node memory for instance {{ $labels.instance }} has reached {{ $value }}%"
@@ -43,8 +37,6 @@ groups:
       for: 2m
       labels:
         severity: critical
-        app_type: linux
-        category: cpu
       annotations:
         summary: "Node CPU usage is HIGH"
         description: "CPU load for instance {{ $labels.instance }} has reached {{ $value }}%"
@@ -54,8 +46,6 @@ groups:
       for: 2m
       labels:
         severity: critical
-        app_type: linux
-        category: cpu
       annotations:
         summary: "Node CPU_0 usage is HIGH"
         description: "CPU_0 load for instance {{ $labels.instance }} has reached {{ $value }}%"
@@ -65,8 +55,6 @@ groups:
       for: 2m
       labels:
         severity: critical
-        app_type: linux
-        category: cpu
       annotations:
         summary: "Node CPU_1 usage is HIGH"
         description: "CPU_1 load for instance {{ $labels.instance }} has reached {{ $value }}%"
@@ -76,8 +64,8 @@ groups:
       for: 2m
       labels:
         severity: warning
-        app_type: linux
-        category: disk
+        # app_type: linux
+        # category: disk
       annotations:
         summary: "Node free disk space is running out"
         description: "Node disk is going to full (< 30% left)\n  Current free disk space is {{ $value }}"
