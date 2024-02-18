@@ -1,5 +1,5 @@
 groups:
-  - name: linux-rules
+  - name: os
     rules:
 
     - alert: NodeExporterDown

@@ -1,12 +1,23 @@
 global:
   resolve_timeout: 1m
-  slack_api_url: 'https://hooks.slack.com/services/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'
 
 route:
+  group_by: ['instance', 'severity']
+  # wait to send notification
+  group_wait: 1s
+  # wait to resend notification
+  repeat_interval: 1h
+  routes:
+  - match:
+      # alert name defined in alerting_rules.yml
+      alertname: NodeExporterDown
   receiver: 'slack-notifications'
 
 receivers:
+# slack hook configuration
 - name: 'slack-notifications'
   slack_configs:
-  - channel: '#monitoring'
-    # send_resolved: true
+  - api_url: "https://hooks.slack.com/services/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k"
+    title: "{{ .CommonAnnotations.summary }}"
+    title_link: ""
+    text: "RabbitMQ server got down for 10 seconds"
