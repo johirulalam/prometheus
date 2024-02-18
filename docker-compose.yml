@@ -19,7 +19,7 @@ services:
     image: prom/node-exporter
     hostname: node_exporter
     ports:
-      - 9111:9111
+      - 9100:9100
     networks:
       - my-network
 
