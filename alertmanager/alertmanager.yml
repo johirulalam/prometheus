@@ -1,6 +1,6 @@
 global:
   resolve_timeout: 1m
-  slack_api_url: 'https://hooks.slack.com/services/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'
+  slack_api_url: 'https://hooks.slack.com/services/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'
 
 route:
   receiver: 'slack-notifications'
@@ -8,5 +8,5 @@ route:
 receivers:
 - name: 'slack-notifications'
   slack_configs:
-  - channel: '#hackathon'
-    send_resolved: true
+  - channel: '#monitoring'
+    # send_resolved: true
