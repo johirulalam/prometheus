@@ -32,5 +32,6 @@ services:
       - ./alertmanager:/etc/alertmanager
     command:
       - '--config.file=/etc/alertmanager/alertmanager.yml'
+      - '--log.level=debug'
     networks:
       - my-network
