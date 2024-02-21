@@ -1,6 +1,6 @@
 global:
   resolve_timeout: 1m
-  slack_api_url: 'https://hooks.slack.com/services/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k'
+  slack_api_url: 'https://hooks.slack.com/services/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'
 
 route:
   receiver: 'slack-notifications'
