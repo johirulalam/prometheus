@@ -52,6 +52,7 @@ services:
     restart: always
     ports:
       - "4317" # OTLP gRPC receiver
+      - "4318" # otlp http receiver
       - "8889" # Prometheus exporter metrics
     depends_on:
       - loki
