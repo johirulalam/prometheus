@@ -4,6 +4,7 @@ networks:
     driver: bridge
 services:
   prometheus:
+    container_name: prometheus
     image: prom/prometheus
     hostname: prometheus
     ports:
@@ -12,8 +13,12 @@ services:
       - ./prometheus:/etc/prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--enable-feature=exemplar-storage'
+      - '--web.enable-remote-write-receiver'
     networks:
       - my-network
+    depends_on:
+      - collector
 
   node_exporter:
     image: prom/node-exporter
@@ -24,6 +29,7 @@ services:
       - my-network
 
   alertmanager:
+    container_name: alertmanager
     image: prom/alertmanager
     hostname: alertmanager
     ports:
@@ -35,3 +41,50 @@ services:
       - '--log.level=debug'
     networks:
       - my-network
+  
+  collector:
+    container_name: collector
+    image: otel/opentelemetry-collector-contrib:0.91.0
+    command:
+      - '--config=/etc/otelcol-contrib/otel-collector.yml'
+    volumes:
+      - ./opentelemetry:/etc/otelcol-contrib/otel-collector.yml
+    restart: always
+    ports:
+      - "4317" # OTLP gRPC receiver
+      - "8889" # Prometheus exporter metrics
+    depends_on:
+      - loki
+      - tempo
+
+  tempo:
+    container_name: tempo
+    image: grafana/tempo:latest
+    command: [ "-config.file=/etc/tempo.yml" ]
+    volumes:
+      - ./tempo/tempo.yml:/etc/tempo.yml
+    restart: always
+    ports:
+      - "4317"  # otlp grpc
+      - "3200"  # tempo as grafana datasource
+
+  loki:
+    container_name: loki
+    image: grafana/loki:latest
+    command: -config.file=/etc/loki/local-config.yaml
+    restart: always
+    ports:
+      - "3100"
+
+  grafana:
+    container_name: grafana
+    image: grafana/grafana
+    volumes:
+      - ./grafana/grafana-datasources.yml:/etc/grafana/provisioning/datasources/datasources.yml
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
+      - loki
+      - tempo
