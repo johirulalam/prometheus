@@ -2,9 +2,9 @@ receivers:
   otlp:
     protocols:
       grpc:
-        endpoint: "http://staging.doplac.com:4317"
+        endpoint: "0.0.0.0m:4317"
       http:
-        endpoint: "http://staging.doplac.com:4318"
+        endpoint: "0.0.0.0:4318"
 
 processors:
   batch:
