@@ -48,7 +48,7 @@ services:
     command:
       - '--config=/etc/otelcol-contrib/otel-collector.yml'
     volumes:
-      - ./opentelemetry:/etc/otelcol-contrib/otel-collector.yml
+      - ./opentelemetry/otel-collector.yml:/etc/otelcol-contrib/otel-collector.yml
     restart: always
     ports:
       - "4317" # OTLP gRPC receiver
