@@ -9,8 +9,8 @@ services:
     hostname: prometheus
     ports:
       - 9090:9090
-    volumes:
-      - ./prometheus:/etc/prometheus
+    # volumes:
+    #   - ./prometheus:/etc/prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--enable-feature=exemplar-storage'
@@ -34,8 +34,8 @@ services:
     hostname: alertmanager
     ports:
       - 9093:9093
-    volumes:
-      - ./alertmanager:/etc/alertmanager
+    # volumes:
+    #   - ./alertmanager:/etc/alertmanager
     command:
       - '--config.file=/etc/alertmanager/alertmanager.yml'
       - '--log.level=debug'
@@ -47,8 +47,8 @@ services:
     image: otel/opentelemetry-collector-contrib:0.91.0
     command:
       - '--config=/etc/otelcol-contrib/otel-collector.yml'
-    volumes:
-      - ./opentelemetry:/etc/otelcol-contrib/otel-collector.yml
+    # volumes:
+    #   - ./opentelemetry:/etc/otelcol-contrib/otel-collector.yml
     restart: always
     ports:
       - "4317" # OTLP gRPC receiver
@@ -61,8 +61,8 @@ services:
     container_name: tempo
     image: grafana/tempo:latest
     command: [ "-config.file=/etc/tempo.yml" ]
-    volumes:
-      - ./tempo/tempo.yml:/etc/tempo.yml
+    # volumes:
+    #   - ./tempo/tempo.yml:/etc/tempo.yml
     restart: always
     ports:
       - "4317"  # otlp grpc
@@ -79,8 +79,8 @@ services:
   grafana:
     container_name: grafana
     image: grafana/grafana
-    volumes:
-      - ./grafana/grafana-datasources.yml:/etc/grafana/provisioning/datasources/datasources.yml
+    # volumes:
+    #   - ./grafana/grafana-datasources.yml:/etc/grafana/provisioning/datasources/datasources.yml
     restart: always
     ports:
       - "3000:3000"
