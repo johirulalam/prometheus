@@ -5,7 +5,7 @@ networks:
 services:
   prometheus:
     container_name: prometheus
-    image: prom/prometheus
+    image: prom/prometheus:alpine
     hostname: prometheus
     ports:
       - 9090:9090
@@ -78,7 +78,7 @@ services:
 
   grafana:
     container_name: grafana
-    image: grafana/grafana
+    image: grafana/grafana:alpine
     # volumes:
     #   - ./grafana/grafana-datasources.yml:/etc/grafana/provisioning/datasources/datasources.yml
     restart: always
