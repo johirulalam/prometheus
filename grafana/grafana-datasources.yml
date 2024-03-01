@@ -6,7 +6,7 @@ datasources:
     uid: prometheus
     access: proxy
     orgId: 1
-    url: 168.119.154.81:9090
+    url: prometheus.doplac.com:9090
     basicAuth: false
     isDefault: false
     version: 1
@@ -21,7 +21,7 @@ datasources:
     uid: loki
     access: proxy
     orgId: 1
-    url: 168.119.154.81:3100
+    url: loki.doplac.com:3100
     basicAuth: false
     isDefault: false
     version: 1
@@ -30,7 +30,7 @@ datasources:
     type: tempo
     access: proxy
     orgId: 1
-    url: 168.119.154.81:3200
+    url: tempo.doplac.com:3200
     basicAuth: false
     isDefault: true
     version: 1
