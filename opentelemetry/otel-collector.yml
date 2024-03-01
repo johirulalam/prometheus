@@ -14,19 +14,19 @@ processors:
 
 exporters:
   prometheusremotewrite:
-    endpoint: "http://staging.doplac.com:9090/api/v1/write"
+    endpoint: "168.119.154.81:9090/api/v1/write"
 
   prometheus:
-    endpoint: "http://staging.doplac.com:8889"
+    endpoint: "168.119.154.81:8889"
     enable_open_metrics: true
 
   otlp/tempo:
-    endpoint: "http://staging.doplac.com:3200"
+    endpoint: "168.119.154.81:3200"
     tls:
       insecure: true
 
   loki:
-    endpoint: "http://staging.doplac.com:3100/loki/api/v1/push"
+    endpoint: "168.119.154.81:3100/loki/api/v1/push"
 
 service:
   pipelines:
