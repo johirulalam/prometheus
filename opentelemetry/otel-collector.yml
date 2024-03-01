@@ -14,19 +14,19 @@ processors:
 
 exporters:
   prometheusremotewrite:
-    endpoint: "prometheus.doplac.com:9090/api/v1/write"
+    endpoint: "https://prometheus.doplac.com:9090/api/v1/write"
 
   prometheus:
-    endpoint: "prometheus.doplac.com:8889"
+    endpoint: "https://prometheus.doplac.com:8889"
     enable_open_metrics: true
 
   otlp/tempo:
-    endpoint: "tempo.doplac.com:4317"
+    endpoint: "https://tempo.doplac.com:4317"
     tls:
       insecure: true
 
   loki:
-    endpoint: "loki.doplac.com:3100/loki/api/v1/push"
+    endpoint: "https://loki.doplac.com:3100/loki/api/v1/push"
 
 service:
   pipelines:
