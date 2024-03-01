@@ -67,6 +67,7 @@ services:
     restart: always
     ports:
       - "3200:3200"  # tempo as grafana datasource
+      - "4317"
 
   loki:
     container_name: loki

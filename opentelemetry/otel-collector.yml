@@ -21,7 +21,7 @@ exporters:
     enable_open_metrics: true
 
   otlp/tempo:
-    endpoint: "tempo.doplac.com:3200"
+    endpoint: "tempo.doplac.com:4317"
     tls:
       insecure: true
 
