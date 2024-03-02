@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="ca25d737-7c87-4cbb-ac8c-9090d4f907e1" name="Hackathon">
+        <fileTransfer accessType="SFTP" host="168.119.154.81" port="22" sshConfigId="b778700c-cc0e-4039-a902-0beaaa897a30" sshConfig="root@168.119.154.81:22 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
